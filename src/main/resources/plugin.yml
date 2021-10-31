@@ -1,0 +1,6 @@
+name: Mastery
+version: '${project.version}'
+main: io.github.craftizz.mastery.Mastery
+api-version: 1.17
+authors: [ Craftizz ]
+description: Custom Plugin of OneBlockWorld
