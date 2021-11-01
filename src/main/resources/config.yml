@@ -1,0 +1,7 @@
+category:
+  farming:
+    gui-title: "Farming"
+    menu:
+      slot: 12
+      lore:
+        - ""

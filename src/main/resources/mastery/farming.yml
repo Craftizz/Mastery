@@ -1,11 +1,39 @@
 
+gui:
+  title: "Farming Mastery"
+  lore:
+    - ""
+    - "blahblahlbha"
+    - ""
+  slot: 11
+
 WHEAT:
   1:
+    title: "Wheat Mastery I"
+    lore:
+      - ""
+      - " Harvest <progress>/50 Wheat"
+      - ""
     level-goal: 50
     command-rewards:
       - "token give <player> 1"
-
   2:
-    level-goal:
+    level-goal: 250
+    command-rewards:
+      - "token give <player> 1"
+  3:
+    level-goal: 750
+    command-rewards:
+      - "token give <player> 1"
+  4:
+    level-goal: 1500
+    command-rewards:
+      - "token give <player> 1"
+  5:
+    level-goal: 5000
+    command-rewards:
+      - "token give <player> 1"
+  6:
+    level-goal: 20000
     command-rewards:
       - "token give <player> 1"

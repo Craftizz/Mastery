@@ -2,13 +2,16 @@ package io.github.craftizz.mastery.player;
 
 public class PlayerMasteryProgress {
 
+    private int level;
     private int progress;
     private int goal;
 
     public PlayerMasteryProgress(int progress,
-                                 int goal) {
+                                 int goal,
+                                 int level) {
         this.progress = progress;
         this.goal = goal;
+        this.level = level;
     }
 
     /**
@@ -43,5 +46,13 @@ public class PlayerMasteryProgress {
      */
     public void setGoal(int goal) {
         this.goal = goal;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 }

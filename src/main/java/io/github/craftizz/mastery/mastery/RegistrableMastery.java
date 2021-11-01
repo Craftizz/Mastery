@@ -73,4 +73,8 @@ public class RegistrableMastery {
     public Material getMaterial() {
         return material;
     }
+
+    public MasteryLevel[] getLevels() {
+        return levels;
+    }
 }

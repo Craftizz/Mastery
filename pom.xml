@@ -45,13 +45,18 @@
                                 <!-- MattsFramework -->
                                 <relocation>
                                     <pattern>me.mattstudios.mf</pattern>
-                                    <shadedPattern>io.github.craftizz.oneblockworld.libraries.mf</shadedPattern>
+                                    <shadedPattern>io.github.craftizz.mastery.libraries.mf</shadedPattern>
                                 </relocation>
 
                                 <!-- SimplixStorage -->
                                 <relocation>
                                     <pattern>de.leonhard.storage</pattern>
-                                    <shadedPattern>io.github.craftizz.oneblockworld.libraries.storage</shadedPattern>
+                                    <shadedPattern>io.github.craftizz.mastery.libraries.storage</shadedPattern>
+                                </relocation>
+
+                                <relocation>
+                                    <patter>dev.triumphteam.gui</patter>
+                                    <shadedPattern>io.github.craftizz.mastery.libraries.gui</shadedPattern>
                                 </relocation>
 
                             </relocations>
@@ -81,6 +86,14 @@
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
+        <repository>
+            <id>mattstudios</id>
+            <url>https://repo.mattstudios.me/artifactory/public/</url>
+        </repository>
+        <repository>
+            <id>placeholderapi</id>
+            <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -105,6 +118,28 @@
             <groupId>me.mattstudios.utils</groupId>
             <artifactId>matt-framework</artifactId>
             <version>1.4</version>
+        </dependency>
+
+        <!-- GUI -->
+        <dependency>
+            <groupId>dev.triumphteam</groupId>
+            <artifactId>triumph-gui</artifactId>
+            <version>3.0.4</version>
+        </dependency>
+
+        <!--Mini Message -->
+        <dependency>
+            <groupId>net.kyori</groupId>
+            <artifactId>adventure-text-minimessage</artifactId>
+            <version>4.1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!--PlaceholderAPI -->
+        <dependency>
+            <groupId>me.clip</groupId>
+            <artifactId>placeholderapi</artifactId>
+            <version>2.10.10</version>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>

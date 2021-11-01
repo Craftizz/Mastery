@@ -5,6 +5,7 @@ import de.leonhard.storage.LightningBuilder;
 import de.leonhard.storage.internal.FileData;
 import io.github.craftizz.mastery.Mastery;
 import io.github.craftizz.mastery.managers.MasteryManager;
+import io.github.craftizz.mastery.mastery.MasteryLevel;
 import io.github.craftizz.mastery.mastery.RegistrableMastery;
 import io.github.craftizz.mastery.player.PlayerData;
 import io.github.craftizz.mastery.player.PlayerMasteryProgress;
@@ -61,10 +62,15 @@ public class PlayerDataLoader {
                 continue;
             }
 
-            final int progress = playerFile.getInt(materialName);
-            final int goal = registrableMastery.getNextMasteryGoal(progress).getGoal();
 
-            playerData.addMastery(material, new PlayerMasteryProgress(progress, goal));
+            final int progress = playerFile.getInt(materialName);
+
+            final MasteryLevel masteryLevel = registrableMastery.getNextMasteryGoal(progress);
+
+            playerData.addMastery(material, new PlayerMasteryProgress(
+                    progress,
+                    masteryLevel.getGoal(),
+                    masteryLevel.getLevel()));
         }
 
         return playerData;

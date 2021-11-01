@@ -1,6 +1,7 @@
 package io.github.craftizz.mastery.mastery;
 
 import com.google.common.base.Preconditions;
+import io.github.craftizz.mastery.gui.metadata.GuiItemMetaData;
 import org.bukkit.Bukkit;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
@@ -14,14 +15,17 @@ public class MasteryLevel {
     private final int level;
     private final int goal;
 
+    private final GuiItemMetaData guiItemMetaData;
     private final List<String> commandsOnCompletion;
 
     public MasteryLevel(final int level,
                         final int goal,
+                        final GuiItemMetaData guiItemMetaData,
                         final List<String> commandsOnCompletion) {
 
         this.level = level;
         this.goal = goal;
+        this.guiItemMetaData = guiItemMetaData;
         this.commandsOnCompletion = commandsOnCompletion;
     }
 
@@ -39,6 +43,10 @@ public class MasteryLevel {
 
             Bukkit.dispatchCommand(console, command.replace("<player>", player.getName()));
         }
+    }
+
+    public GuiItemMetaData getGuiItemMetaData() {
+        return guiItemMetaData;
     }
 
     /**

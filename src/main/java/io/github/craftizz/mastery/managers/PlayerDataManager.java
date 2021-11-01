@@ -76,7 +76,9 @@ public class PlayerDataManager {
         else {
 
             final MasteryLevel nextMastery = registrableMastery.getNextMasteryGoal(0);
-            final PlayerMasteryProgress newPlayerMasteryProgress = new PlayerMasteryProgress(0, nextMastery.getGoal());
+            final PlayerMasteryProgress newPlayerMasteryProgress = new PlayerMasteryProgress(0,
+                    nextMastery.getGoal(),
+                    nextMastery.getLevel());
 
             playerData.addMastery(material, newPlayerMasteryProgress);
         }
