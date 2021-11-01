@@ -5,7 +5,6 @@ import io.github.craftizz.mastery.managers.PlayerDataManager;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
 import org.jetbrains.annotations.NotNull;
 
 public class PlayerJoinLeaveListener implements Listener {
@@ -16,13 +15,12 @@ public class PlayerJoinLeaveListener implements Listener {
         this.playerDataManager = plugin.getPlayerDataManager();
     }
 
+    /**
+     *  Listeners to {@link PlayerJoinEvent} to load the playerData.
+     *  This will run async to save up space
+     */
     @EventHandler
     public void onPlayerJoinEvent(final PlayerJoinEvent event) {
-
-    }
-
-    @EventHandler
-    public void onPlayerLeaveEvent(final PlayerQuitEvent event) {
-
+        playerDataManager.loadPlayerData(event.getPlayer().getUniqueId(), true);
     }
 }

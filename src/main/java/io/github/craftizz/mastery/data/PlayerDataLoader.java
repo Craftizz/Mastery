@@ -32,6 +32,12 @@ public class PlayerDataLoader {
         this.playerFiles = new HashMap<>();
     }
 
+    /**
+     * Loads the player data
+     *
+     * @param uniqueId the uniqueId of the player
+     * @return the playerData from the database
+     */
     public PlayerData load(final @NotNull UUID uniqueId) {
 
         final MasteryManager masteryManager = plugin.getMasteryManager();
@@ -64,7 +70,13 @@ public class PlayerDataLoader {
         return playerData;
     }
 
-    public PlayerData loadUserAsync(final @NotNull UUID uniqueId) {
+    /**
+     * Loads the playerData asynchronously
+     *
+     * @param uniqueId the uniqueId of the player
+     * @return the playerData from the database
+     */
+    public PlayerData loadAsync(final @NotNull UUID uniqueId) {
         try {
             return CompletableFuture.supplyAsync(() -> load(uniqueId)).get(5, TimeUnit.SECONDS);
         } catch (ExecutionException | InterruptedException | TimeoutException e) {
@@ -73,6 +85,11 @@ public class PlayerDataLoader {
         return load(uniqueId);
     }
 
+    /**
+     * Saves playerData to the database
+     *
+     * @param playerData the playerData to be saved
+     */
     public void save(final @NotNull PlayerData playerData) {
 
         final Json playerFile = getOrLoadPlayerFile(playerData.getUniqueId());
@@ -88,6 +105,11 @@ public class PlayerDataLoader {
         playerFile.write();
     }
 
+    /**
+     * Saves playerData to the database asynchronously
+     *
+     * @param playerData the playerData to be saved
+     */
     public void saveAsync(final @NotNull PlayerData playerData) {
         try {
             CompletableFuture.runAsync(() -> save(playerData));
@@ -96,6 +118,12 @@ public class PlayerDataLoader {
         }
     }
 
+    /**
+     * Get or loads the playerFile from the JSON files
+     *
+     * @param uniqueId the uniqueId of the player
+     * @return the Json file of the playerData
+     */
     public Json getOrLoadPlayerFile(final @NotNull UUID uniqueId) {
 
         final Json userFile = playerFiles.get(uniqueId);
@@ -112,6 +140,16 @@ public class PlayerDataLoader {
         }
 
         return userFile;
+    }
+
+    /**
+     * Unloads the playerFile to save up space
+     *
+     * @param uniqueId the uniqueId of the player
+     */
+    public void unloadPlayerFile(final @NotNull UUID uniqueId) {
+
+        playerFiles.remove(uniqueId);
     }
 
 }
