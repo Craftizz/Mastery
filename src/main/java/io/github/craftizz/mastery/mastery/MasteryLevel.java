@@ -17,23 +17,12 @@ public class MasteryLevel {
     private final List<String> commandsOnCompletion;
 
     public MasteryLevel(final int level,
-                        final int goal) {
+                        final int goal,
+                        final List<String> commandsOnCompletion) {
 
         this.level = level;
         this.goal = goal;
-        this.commandsOnCompletion = new ArrayList<>();
-    }
-
-    /**
-     * Add a command to be executed when this
-     * mastery level is achieved
-     *
-     * @param command the command to be added
-     */
-    public void addCommand(@NotNull final String command) {
-        Preconditions.checkNotNull(command);
-
-        commandsOnCompletion.add(command);
+        this.commandsOnCompletion = commandsOnCompletion;
     }
 
     /**

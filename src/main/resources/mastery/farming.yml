@@ -1,0 +1,11 @@
+
+WHEAT:
+  1:
+    level-goal: 50
+    command-rewards:
+      - "token give <player> 1"
+
+  2:
+    level-goal:
+    command-rewards:
+      - "token give <player> 1"

@@ -61,9 +61,15 @@ public class PlayerDataManager {
             if (newProgress >= playerMasteryProgress.getGoal()) {
 
                 final MasteryLevel nextMastery = registrableMastery.getNextMasteryGoal(newProgress);
-                playerMasteryProgress.setGoal(nextMastery.getGoal());
-            }
+                final Player player = Bukkit.getPlayer(uniqueId);
 
+                playerMasteryProgress.setGoal(nextMastery.getGoal());
+
+                if (player != null) {
+                    nextMastery.executeCommand(player);
+                }
+
+            }
         }
 
         // Create a mastery progress if absent

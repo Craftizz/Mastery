@@ -21,6 +21,14 @@ public class RegistrableMastery {
         this.levels = masteryLevels.toArray(MasteryLevel[]::new);
     }
 
+    /**
+     * Get the next closest mastery according to the progress.
+     * This will query the array using binary algorithm
+     *
+     * @param progress the progress to be compared to the
+     *                 goal of the mastery level
+     * @return the found mastery level
+     */
     public MasteryLevel getNextMasteryGoal(final int progress) {
 
         if (progress <= levels[0].getGoal()) {
@@ -54,7 +62,7 @@ public class RegistrableMastery {
             }
         }
 
-        return (levels[low].getLevel() - progress) < (progress - levels[high].getGoal())
+        return (levels[low].getGoal() - progress) < (progress - levels[high].getGoal())
                 ? levels[low]
                 : levels[high];
     }
