@@ -1,6 +1,5 @@
 package io.github.craftizz.mastery.player;
 
-import com.google.common.base.Preconditions;
 import org.bukkit.Material;
 import org.jetbrains.annotations.NotNull;
 
@@ -11,7 +10,7 @@ public class PlayerData {
 
     private final UUID uniqueId;
 
-    private final EnumMap<Material, Integer> masteries;
+    private final EnumMap<Material, PlayerMasteryProgress> masteries;
 
     public PlayerData(@NotNull final UUID uniqueId) {
         this.uniqueId = uniqueId;
@@ -22,42 +21,36 @@ public class PlayerData {
      * Adds a mastery to the playerData
      *
      * @param material the material for the mastery
-     * @param progress the progress of the mastery
+     * @param playerMasteryProgress the progress of the mastery
      */
     public void addMastery(final Material material,
-                           final int progress) {
+                           final PlayerMasteryProgress playerMasteryProgress) {
 
-        masteries.put(material, progress);
-    }
-
-    /**
-     * Adds the additional to the mastery of the player
-     *
-     * @param material the material of the mastery
-     * @param additional the additional progress to
-     *                   be added for the mastery
-     *
-     * @return the new progress of the mastery
-     */
-    public int progressMastery(final Material material,
-                               final int additional) {
-
-        final int progress = masteries.get(material);
-        final int newProgress = progress + additional;
-
-        masteries.put(material, newProgress);
-
-        return newProgress;
+        masteries.put(material, playerMasteryProgress);
     }
 
     /**
      * Get the current mastery progress of the player
      *
      * @param material the material of the mastery
-     * @return the current progress of the player
+     * @return the mastery progress of the player
      */
-    public int getMasteryProgress(final Material material) {
+    public PlayerMasteryProgress getMasteryProgress(final Material material) {
 
-        return masteries.getOrDefault(material, 0);
+        return masteries.get(material);
+    }
+
+    /**
+     * @return the masteries of the player
+     */
+    public EnumMap<Material, PlayerMasteryProgress> getMasteries() {
+        return masteries;
+    }
+
+    /**
+     * @return the uniqueId of the player
+     */
+    public UUID getUniqueId() {
+        return uniqueId;
     }
 }

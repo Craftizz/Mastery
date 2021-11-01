@@ -24,8 +24,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <source>11</source>
+                    <target>11</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -40,6 +40,21 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <relocations>
+
+                                <!-- MattsFramework -->
+                                <relocation>
+                                    <pattern>me.mattstudios.mf</pattern>
+                                    <shadedPattern>io.github.craftizz.oneblockworld.libraries.mf</shadedPattern>
+                                </relocation>
+
+                                <!-- SimplixStorage -->
+                                <relocation>
+                                    <pattern>de.leonhard.storage</pattern>
+                                    <shadedPattern>io.github.craftizz.oneblockworld.libraries.storage</shadedPattern>
+                                </relocation>
+
+                            </relocations>
                         </configuration>
                     </execution>
                 </executions>
@@ -62,14 +77,35 @@
             <id>sonatype</id>
             <url>https://oss.sonatype.org/content/groups/public/</url>
         </repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
     </repositories>
 
     <dependencies>
+
+        <!-- PaperMC -->
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
             <version>1.17.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- SimplixStorage -->
+        <dependency>
+            <groupId>com.github.simplix-softworks</groupId>
+            <artifactId>simplixstorage</artifactId>
+            <version>3.2.3</version>
+        </dependency>
+
+        <!-- Matts framework -->
+        <dependency>
+            <groupId>me.mattstudios.utils</groupId>
+            <artifactId>matt-framework</artifactId>
+            <version>1.4</version>
+        </dependency>
+
     </dependencies>
 </project>
