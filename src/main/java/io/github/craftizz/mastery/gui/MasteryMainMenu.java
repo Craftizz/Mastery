@@ -8,6 +8,7 @@ import io.github.craftizz.mastery.managers.MasteryManager;
 import io.github.craftizz.mastery.managers.MenuManager;
 import io.github.craftizz.mastery.managers.PlayerDataManager;
 import io.github.craftizz.mastery.mastery.MasteryCategory;
+import io.github.craftizz.mastery.utils.ComponentParser;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
@@ -35,9 +36,9 @@ public class MasteryMainMenu extends AbstractMasteryMenu {
      * @param menuManager the instance of menuManager from the plugin
      */
     public void build(@NotNull final Player player,
-                       @NotNull final MasteryManager masteryManager,
-                       @NotNull final PlayerDataManager playerDataManager,
-                       @NotNull final MenuManager menuManager) {
+                      @NotNull final MasteryManager masteryManager,
+                      @NotNull final PlayerDataManager playerDataManager,
+                      @NotNull final MenuManager menuManager) {
 
         gui.getFiller().fill(borderItem);
 
@@ -47,6 +48,8 @@ public class MasteryMainMenu extends AbstractMasteryMenu {
 
             gui.setItem(metaData.getSlot(), ItemBuilder
                     .from(metaData.getMaterial())
+                    .name(ComponentParser.parse(metaData.getTitle()))
+                    .lore(ComponentParser.parse(metaData.getLore()))
                     .asGuiItem(event -> menuManager.openMasteryMenu(player, masteryCategory)));
         }
 

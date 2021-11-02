@@ -4,6 +4,7 @@ import dev.triumphteam.gui.builder.item.ItemBuilder;
 import dev.triumphteam.gui.guis.Gui;
 import dev.triumphteam.gui.guis.GuiItem;
 import dev.triumphteam.gui.guis.PaginatedGui;
+import io.github.craftizz.mastery.gui.metadata.GuiItemMetaData;
 import io.github.craftizz.mastery.managers.MasteryManager;
 import io.github.craftizz.mastery.managers.PlayerDataManager;
 import io.github.craftizz.mastery.mastery.MasteryCategory;
@@ -11,6 +12,7 @@ import io.github.craftizz.mastery.mastery.MasteryLevel;
 import io.github.craftizz.mastery.mastery.RegistrableMastery;
 import io.github.craftizz.mastery.player.PlayerData;
 import io.github.craftizz.mastery.player.PlayerMasteryProgress;
+import io.github.craftizz.mastery.utils.ComponentParser;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
@@ -85,16 +87,18 @@ public class MasteryMenu extends AbstractMasteryMenu {
                 // If no progress or locked yet
                 if (playerMasteryProgress == null || playerMasteryProgress.getLevel() < masteryLevel.getLevel()) {
 
-                    gui.addItem(ItemBuilder
-                            .from(Material.GRAY_DYE)
+                    gui.addItem(ItemBuilder.from(Material.GRAY_DYE)
                             .asGuiItem());
 
                 }
 
                 else {
 
-                    gui.addItem(ItemBuilder
-                            .from(material)
+                    final GuiItemMetaData guiItemMetaData = masteryLevel.getGuiItemMetaData();
+
+                    gui.addItem(ItemBuilder.from(material)
+                            .name(ComponentParser.parse(guiItemMetaData.getTitle()))
+                            .lore(ComponentParser.parse(guiItemMetaData.getLore()))
                             .asGuiItem());
 
                 }
