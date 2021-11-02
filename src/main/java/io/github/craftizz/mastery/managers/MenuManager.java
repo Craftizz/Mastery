@@ -17,6 +17,11 @@ public class MenuManager {
         this.playerDataManager = plugin.getPlayerDataManager();
     }
 
+    /**
+     * Opens the mastery main menu to the player
+     *
+     * @param player the player where the main menu will be opened
+     */
     public void openMasteryMainMenu(@NotNull final Player player) {
 
         final MasteryMainMenu masteryMainMenu =  new MasteryMainMenu();
@@ -25,6 +30,12 @@ public class MenuManager {
         masteryMainMenu.open(player);
     }
 
+    /**
+     * Opens the mastery category menu to the player
+     *
+     * @param player the player where the mastery menu will be opened
+     * @param masteryCategory the mastery category requested
+     */
     public void openMasteryMenu(@NotNull final Player player,
                                 @NotNull final MasteryCategory masteryCategory) {
 

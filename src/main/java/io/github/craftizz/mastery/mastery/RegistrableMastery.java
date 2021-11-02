@@ -74,6 +74,9 @@ public class RegistrableMastery {
         return material;
     }
 
+    /**
+     * @return the masteryLevels of this mastery
+     */
     public MasteryLevel[] getLevels() {
         return levels;
     }

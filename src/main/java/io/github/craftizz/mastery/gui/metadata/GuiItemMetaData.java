@@ -17,10 +17,16 @@ public class GuiItemMetaData {
         this.lore = lore;
     }
 
+    /**
+     * @return the title to be used on an item
+     */
     public String getTitle() {
         return title;
     }
 
+    /**
+     * @return the lore to be used on an item
+     */
     public List<String> getLore() {
         return lore;
     }

@@ -48,10 +48,18 @@ public class PlayerMasteryProgress {
         this.goal = goal;
     }
 
+    /**
+     * @return the level of this mastery
+     */
     public int getLevel() {
         return level;
     }
 
+    /**
+     * Sets a new level for this mastery
+     *
+     * @param level the new level
+     */
     public void setLevel(int level) {
         this.level = level;
     }

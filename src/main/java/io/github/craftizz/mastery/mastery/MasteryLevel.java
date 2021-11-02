@@ -45,6 +45,9 @@ public class MasteryLevel {
         }
     }
 
+    /**
+     * @return the {@link GuiItemMetaData} of this mastery level
+     */
     public GuiItemMetaData getGuiItemMetaData() {
         return guiItemMetaData;
     }

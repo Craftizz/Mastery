@@ -32,6 +32,11 @@ public class MasteryManager {
         registeredMasteries.put(registrableMastery.getMaterial(), registrableMastery);
     }
 
+    /**
+     * Adds a masteryCategory to the registered mastery category
+     *
+     * @param masteryCategory the masteryCategory to be registered
+     */
     public void addMasteryCategory(@NotNull final MasteryCategory masteryCategory) {
         Preconditions.checkNotNull(masteryCategory);
 
@@ -49,6 +54,9 @@ public class MasteryManager {
         return registeredMasteries.get(material);
     }
 
+    /**
+     * @return a set of mastery categories
+     */
     public Set<MasteryCategory> getMasteryCategories() {
         return masteryCategories;
     }

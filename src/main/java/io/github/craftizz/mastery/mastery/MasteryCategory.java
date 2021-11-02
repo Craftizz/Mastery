@@ -21,14 +21,23 @@ public class MasteryCategory {
         this.slotGuiItemMetaData = slotGuiItemMetaData;
     }
 
+    /**
+     * @return the name of this category
+     */
     public String getCategoryName() {
         return categoryName;
     }
 
+    /**
+     * @return the materials of this category
+     */
     public EnumSet<Material> getCategoryMaterials() {
         return categoryMaterials;
     }
 
+    /**
+     * @return the {@link SlotGuiItemMetaData} of this category
+     */
     public SlotGuiItemMetaData getSlotGuiItemMetaData() {
         return slotGuiItemMetaData;
     }

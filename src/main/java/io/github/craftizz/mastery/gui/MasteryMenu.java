@@ -36,6 +36,14 @@ public class MasteryMenu extends AbstractMasteryMenu {
                 .create();
     }
 
+    /**
+     * Builds this GUI menu
+     *
+     * @param player the player that will be used for the data
+     * @param masteryManager the instance of masteryManager from the plugin
+     * @param playerDataManager the instance of playerDataManager from the plugin
+     * @param masteryCategory the category requested by the player
+     */
     public final void build(@NotNull final Player player,
                             @NotNull final MasteryManager masteryManager,
                             @NotNull final PlayerDataManager playerDataManager,

@@ -19,10 +19,16 @@ public class SlotGuiItemMetaData extends GuiItemMetaData {
         this.slot = slot;
     }
 
+    /**
+     * @return the material of an item
+     */
     public Material getMaterial() {
         return material;
     }
 
+    /**
+     * @return the slot on the where the item will be placed
+     */
     public int getSlot() {
         return slot;
     }
